@@ -1,0 +1,10 @@
+streamlit==1.33.0
+python-dotenv==1.0.0
+requests==2.31.0
+groq==0.4.1
+crewai==0.10.2
+langchain==0.1.4
+langchain-core==0.1.15
+langchain-community==0.0.19
+pydantic==2.5.3
+typing-extensions==4.8.0
