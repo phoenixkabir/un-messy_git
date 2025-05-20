@@ -103,7 +103,6 @@ class DocsGeneratorCrew:
         
         # Create the crew with more limited, focused tasks to avoid timeouts
         try:
-            # Try to create with max_rpm and max_execution_time if supported
             self.crew = Crew(
                 agents=[
                     self.planner,
@@ -119,17 +118,17 @@ class DocsGeneratorCrew:
             )
         except TypeError:
             # Fallback to basic creation if those parameters aren't supported
-        self.crew = Crew(
-            agents=[
-                self.planner,
-                self.code_analyzer,
-                self.doc_writer,
-                self.diagrammer
-            ],
-            tasks=self._create_tasks(),
-            verbose=self.verbose,
+            self.crew = Crew(
+                agents=[
+                    self.planner,
+                    self.code_analyzer,
+                    self.doc_writer,
+                    self.diagrammer
+                ],
+                tasks=self._create_tasks(),
+                verbose=self.verbose,
                 process=Process.sequential  # Sequential is more reliable
-        )
+            )
     
     def _create_planner_agent(self) -> Agent:
         """Create the Planner agent."""
@@ -378,8 +377,7 @@ class DocsGeneratorCrew:
                             docs_result = task_result
                         elif "diagram" in task_id.lower():
                             diagram_result = task_result
-        
-        return {
+                return {
                     "documentation": docs_result or "No documentation generated.",
                     "diagrams": diagram_result or "No diagrams generated.",
                     "plan": planning_result or "No plan generated.",
