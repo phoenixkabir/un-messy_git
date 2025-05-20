@@ -164,7 +164,7 @@ class FileBrowser:
                 # Display file preview if small enough and at root level
                 if file.get("size", 0) < 20000 and indent_level == 0 and is_selected:  
                     preview_key = self._make_stable_key("preview", file_path)
-                    with st.expander(f"Preview: {file_name}", expanded=False, key=preview_key):
+                    with st.expander(f"Preview: {file_name}", expanded=False):
                         try:
                             # Import here to avoid circular imports
                             from app.github.github_utils import GithubRepositoryFetcher
