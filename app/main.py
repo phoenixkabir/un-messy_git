@@ -2,7 +2,6 @@
 AI Docs Generator - Main Application
 """
 import streamlit as st
-st.set_page_config(page_title="AI Docs Generator", layout="wide")
 import os
 from dotenv import load_dotenv
 import groq
