@@ -2,6 +2,7 @@
 AI Docs Generator - Main Application
 """
 import streamlit as st
+st.set_page_config(page_title="AI Docs Generator", layout="wide")
 import os
 from dotenv import load_dotenv
 import groq
@@ -107,8 +108,6 @@ def generate_documentation(repo_url, selected_files, model_name, temperature):
 
 def main():
     """Main application function."""
-    st.set_page_config(page_title="AI Docs Generator", layout="wide")
-    
     st.title("AI Docs Generator")
     st.write("Generate comprehensive documentation from your GitHub repositories.")
     
